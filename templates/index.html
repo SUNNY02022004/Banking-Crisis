@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Crisis Predictor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Banking Crisis Predictor</h1>
+
+    <form action="/predict" method="post">
+        <label for="feature_0">Capital Adequacy Ratio (CAR):</label>
+        <input type="text" name="feature_0" required><br>
+
+        <label for="feature_1">Loan to Deposit Ratio:</label>
+        <input type="text" name="feature_1" required><br>
+
+        <label for="feature_2">Return on Assets (ROA):</label>
+        <input type="text" name="feature_2" required><br>
+
+        <label for="feature_3">Non-Performing Loans (NPL) Ratio:</label>
+        <input type="text" name="feature_3" required><br>
+
+        <label for="feature_4">Liquidity Ratio:</label>
+        <input type="text" name="feature_4" required><br>
+
+        <label for="feature_5">Net Interest Margin (NIM):</label>
+        <input type="text" name="feature_5" required><br>
+
+        <label for="feature_6">Gross Domestic Product (GDP) Growth Rate:</label>
+        <input type="text" name="feature_6" required><br>
+
+        <label for="feature_7">Inflation Rate:</label>
+        <input type="text" name="feature_7" required><br>
+
+        <label for="feature_8">Government Debt to GDP Ratio:</label>
+        <input type="text" name="feature_8" required><br>
+
+        <label for="feature_9">Political Stability:</label>
+        <input type="text" name="feature_9" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+        <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+
+    <!-- Image for better visualization -->
+    <img src="data:image/jpeg;base64,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
+" alt="Banking Crisis Image">
+</body>
+</html>
