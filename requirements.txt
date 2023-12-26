@@ -2,4 +2,4 @@ Flask
 Gunicorn
 joblib==1.2.0
 pandas==2.1.4
-sklearn==0.0.post12
+sklearn==0.0
