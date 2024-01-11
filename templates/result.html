@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Banking Crisis Predictor - Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .result-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .prediction-yes {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .prediction-no {
+            font-weight: bold;
+            color: #008000;
+        }
+
+        .back-button {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="result-container">
+        <h1>Banking Crisis Prediction Result</h1>
+
+        {% if prediction == 1 %}
+        <p class="prediction-yes">Prediction: Yes, High Risk of Banking Crisis</p>
+        {% else %}
+        <p class="prediction-no">Prediction: No, Low Risk of Banking Crisis</p>
+        {% endif %}
+
+        <a href="/" class="back-button">Back to Prediction</a>
+    </div>
+
+</body>
+
+</html>
