@@ -37,10 +37,10 @@ def predict():
         prediction = model.predict(input_data)[0]
 
         # Convert binary prediction to 'Yes' or 'No'
-        prediction_result = 'Yes' if prediction == 1 else 'No'
+
         
-        # Render the prediction result on the web page
-        return render_template('index.html', prediction=prediction_result)
+        # Render the prediction result on the 'result.html' page
+        return render_template('result.html', prediction=prediction)
 
 @app.route('/error/<error_message>')
 def error(error_message):
